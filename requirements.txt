@@ -1,0 +1,9 @@
+chaussette
+django
+django-compressor
+django-libsass
+django-storages
+django-tastypie
+meinheld
+psycopg2
+raven

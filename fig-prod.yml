@@ -1,0 +1,29 @@
+nginx:
+  image: nginx:latest
+  ports:
+    - 80:80
+    - 443:443
+  links:
+    - app:app
+  volumes:
+    - nginx.conf:/etc/nginx/nginx.conf:ro
+
+db:
+  image: postgres:latest
+  environment:
+    POSTGRES_USER: {{ project_name }}
+    POSTGRES_PASSWORD:
+
+app:
+  build: .
+  links:
+    - db:db
+  environment:
+    SECRET_KEY:
+    POSTGRES_HOST: db
+    POSTGRES_USER: {{ project_name }}
+    POSTGRES_PASSWORD:
+    AWS_ACCESS_KEY_ID:
+    AWS_SECRET_ACCESS_KEY:
+    SENTRY_DSN:
+  command: chaussette --backend meinheld --host 0.0.0.0 {{ project_name }}.wsgi.application

@@ -1,0 +1,23 @@
+db:
+  image: postgres:latest
+  environment:
+    POSTGRES_USER: {{ project_name }}
+    POSTGRES_PASSWORD:
+
+app:
+  build: .
+  volumes:
+    - .:/usr/src/app
+  links:
+    - db:db
+  environment:
+    PYTHONUNBUFFERED: 1
+    DEBUG: 1
+    SECRET_KEY:
+    POSTGRES_HOST: db
+    POSTGRES_USER: {{ project_name }}
+    POSTGRES_PASSWORD:
+    SENTRY_DSN:
+  ports:
+    - 8000:8000
+  command: python manage.py runserver 0.0.0.0:8000
