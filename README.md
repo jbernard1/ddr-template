@@ -41,6 +41,8 @@ export AWS_SECRET_ACCESS_KEY=
 export SENTRY_DSN=
 ```
 
+You can also use a `.env` config file for Docker and Heroku deployment
+
 ## Deployment
 
 Use the [Chaussette](http://chaussette.readthedocs.org) WSGI server with
@@ -49,23 +51,13 @@ Use the [Chaussette](http://chaussette.readthedocs.org) WSGI server with
 
 ### Docker
 
-1. Create `.env` config files
-
-  #### Development
-
-  `development.env`
-
-  #### Production
-
-  `production.env`
-
-2. Build app image
+1. Build app image
 
   ```bash
   docker-compose build app
   ```
 
-3. Create and run containers
+2. Create and run containers
 
   #### Development
 
