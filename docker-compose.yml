@@ -3,6 +3,7 @@ db:
   environment:
     POSTGRES_USER: {{ project_name }}
     POSTGRES_PASSWORD:
+  env_file: development.env
 
 app:
   build: .
@@ -18,6 +19,7 @@ app:
     POSTGRES_USER: {{ project_name }}
     POSTGRES_PASSWORD:
     SENTRY_DSN:
+  env_file: development.env
   ports:
     - 8000:8000
   command: python manage.py runserver 0.0.0.0:8000

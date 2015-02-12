@@ -13,6 +13,7 @@ db:
   environment:
     POSTGRES_USER: {{ project_name }}
     POSTGRES_PASSWORD:
+  env_file: production.env
 
 app:
   build: .
@@ -26,4 +27,5 @@ app:
     AWS_ACCESS_KEY_ID:
     AWS_SECRET_ACCESS_KEY:
     SENTRY_DSN:
+  env_file: production.env
   command: chaussette --backend meinheld --host 0.0.0.0 {{ project_name }}.wsgi.application
