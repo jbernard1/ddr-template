@@ -5,7 +5,7 @@ db:
     POSTGRES_PASSWORD:
   env_file: .env
 
-app:
+web:
   build: .
   volumes:
     - .:/usr/src/app

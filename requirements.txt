@@ -1,10 +1,11 @@
-chaussette
+boto
+dj-database-url
 django
 django-compressor
 django-libsass
 django-storages
 django-tastypie
-dj-database-url
-meinheld
+gevent
+gunicorn
 psycopg2
 raven

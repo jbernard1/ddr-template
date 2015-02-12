@@ -4,6 +4,7 @@
 django-admin startproject \
   --template=https://github.com/SiliconValleyInsight/django-project-template/archive/master.zip \
   --extension=py,yml \
+  --name=Procfile \
   PROJECT_NAME
 ```
 
@@ -48,10 +49,6 @@ export SENTRY_DSN=
 You can also use a `.env` config file for Docker and Heroku deployment
 
 ## Deployment
-
-Use the [Chaussette](http://chaussette.readthedocs.org) WSGI server with
-[Meinheld](http://meinheld.org/) as backend.
-
 
 ### Docker
 
