@@ -23,20 +23,24 @@ django-admin startproject \
 Environment variables are used to set configuration values:
 
 ```bash
-# Enable debug mode (default to false)
+# Enable debug mode (defaults to false)
 export DEBUG=
+
 # Session secret key (required)
 export SECRET_KEY=
-# PostgreSQL host (defaults "localhost")
-export POSTGRES_HOST=
-# PostgreSQL user (defaults to project name)
-export POSTGRES_USER=
-# PostgreSQL password (required)
+
+# Database URL (prioritized over Postgres settings)
+export DATABASE_URL=
+
+# Postgres settings (required for Docker deployment)
+export POSTGRES_HOST=localhost
+export POSTGRES_USER={{ project_name }}
 export POSTGRES_PASSWORD=
-# AWS Access Key ID for S3 storage (required if DEBUG is false)
+
+# AWS S3 credentials (required if DEBUG is False)
 export AWS_ACCESS_KEY_ID=
-# AWS Secret Access Key for S3 storage (required if DEBUG is false)
 export AWS_SECRET_ACCESS_KEY=
+
 # Sentry DSN
 export SENTRY_DSN=
 ```

@@ -4,6 +4,7 @@ django-compressor
 django-libsass
 django-storages
 django-tastypie
+dj-database-url
 meinheld
 psycopg2
 raven

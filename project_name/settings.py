@@ -1,5 +1,6 @@
 import os
 
+import dj_database_url
 from django.utils._os import safe_join
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -41,8 +42,10 @@ ROOT_URLCONF = '{{ project_name }}.urls'
 
 WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
-DATABASES = {
-    'default': {
+DATABASES = {}
+DATABASES.setdefault('default', dj_database_url.config())
+if not DATABASES['default']:
+    DATABASES['default'] = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'HOST': os.environ.get('POSTGRES_HOST', 'localhost'),
         'NAME': os.environ.get(
@@ -52,7 +55,6 @@ DATABASES = {
         'USER': os.environ['POSTGRES_USER'],
         'PASSWORD': os.environ['POSTGRES_PASSWORD'],
     }
-}
 
 LANGUAGE_CODE = 'en-us'
 
