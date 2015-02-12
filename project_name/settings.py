@@ -18,10 +18,13 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'tastypie',
     'compressor',
     'storages',
     'raven.contrib.django.raven_compat',
+
+    'api',
 )
 
 MIDDLEWARE_CLASSES = (
