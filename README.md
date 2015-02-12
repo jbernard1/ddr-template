@@ -2,7 +2,7 @@
 
 ```bash
 django-admin startproject \
-  --template=https://github.com/marksteve/django-project-template/archive/master.zip \
+  --template=https://github.com/SiliconValleyInsight/django-project-template/archive/master.zip \
   --extension=py,yml \
   PROJECT_NAME
 ```
