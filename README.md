@@ -49,20 +49,33 @@ Use the [Chaussette](http://chaussette.readthedocs.org) WSGI server with
 
 ### Docker
 
-1. Set environment variables
+1. Create `.env` config files
+
+  #### Development
+
+  `development.env`
+
+  #### Production
+
+  `production.env`
 
 2. Build app image
 
   ```bash
-  fig build app
+  docker-compose build app
   ```
 
 3. Create and run containers
 
+  #### Development
+
   ```bash
-  # Development
-  fig up -d
-  # Production
-  fig -f fig-prod.yml up -d
+  docker-compose up -d
+  ```
+
+  #### Production
+
+  ```bash
+  docker-compose -f docker-compose-prod.yml up -d
   ```
 
