@@ -14,6 +14,10 @@ django-admin startproject \
 - [django-storages](http://django-storages.readthedocs.org)
 - [django-tastypie](http://django-tastypie.readthedocs.org)
 
+## Apps
+
+- [api](api/)
+
 ## Configuration
 
 Environment variables are used to set configuration values:
