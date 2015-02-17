@@ -70,6 +70,12 @@ You can also use a `.env` config file for Docker and Heroku deployment
   git push heroku master
   ```
 
+4. Start web process
+
+  ```bash
+  heroku ps:scale web=1
+  ```
+
 ### Docker
 
 1. Build app image
