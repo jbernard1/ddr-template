@@ -50,6 +50,26 @@ You can also use a `.env` config file for Docker and Heroku deployment
 
 ## Deployment
 
+### Heroku
+
+1. Create app
+
+  ```bash
+  heroku create
+  ```
+
+2. Set config
+
+  ```bash
+  heroku config:set SECRET_KEY=...
+  ```
+
+3. Push to remote
+
+  ```bash
+  git push heroku master
+  ```
+
 ### Docker
 
 1. Build app image
