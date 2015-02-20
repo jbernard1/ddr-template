@@ -81,13 +81,13 @@ else:
     AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
     AWS_STORAGE_BUCKET_NAME = '{{ project_name }}'
     AWS_QUERYSTRING_AUTH = False
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-    STATICFILES_STORAGE = DEFAULT_FILE_STORAGE
-    COMPRESS_STORAGE = DEFAULT_FILE_STORAGE
-    STATIC_URL = 'https://{{ project_name }}.s3.amazonaws.com/'
-    MEDIA_URL = STATIC_URL
+    DEFAULT_FILE_STORAGE = '{{ project_name }}.s3.MediaStorage'
+    STATICFILES_STORAGE = '{{ project_name }}.s3.StaticStorage'
+    COMPRESS_STORAGE = '{{ project_name }}.s3.StaticStorage'
+    STATIC_URL = 'https://{{ project_name }}.s3.amazonaws.com/static/'
+    MEDIA_URL = 'https://{{ project_name }}.s3.amazonaws.com/media/'
 
-COMPRESS_ENABLED = not DEBUG
+COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = not DEBUG
 COMPRESS_OUTPUT_DIR = 'cache'
 COMPRESS_PRECOMPILERS = (
