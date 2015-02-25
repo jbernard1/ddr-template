@@ -12,7 +12,6 @@ db:
   image: postgres:latest
   environment:
     POSTGRES_USER: {{ project_name }}
-    POSTGRES_PASSWORD:
   env_file: .env
 
 web:
@@ -20,12 +19,7 @@ web:
   links:
     - db:db
   environment:
-    SECRET_KEY:
     POSTGRES_HOST: db
     POSTGRES_USER: {{ project_name }}
-    POSTGRES_PASSWORD:
-    AWS_ACCESS_KEY_ID:
-    AWS_SECRET_ACCESS_KEY:
-    SENTRY_DSN:
   env_file: .env
   command: gunicorn -k gevent -b 0.0.0.0:8000 --access-logfile - --error-logfile - {{ project_name }}.wsgi

@@ -14,11 +14,8 @@ web:
   environment:
     PYTHONUNBUFFERED: 1
     DEBUG: 1
-    SECRET_KEY:
     POSTGRES_HOST: db
     POSTGRES_USER: {{ project_name }}
-    POSTGRES_PASSWORD:
-    SENTRY_DSN:
   env_file: .env
   ports:
     - 8000:8000
