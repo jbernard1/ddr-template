@@ -1,5 +1,32 @@
 ## Usage
 
+### Developing Locally 
+
+#### Read
+The [Docker](https://docs.docker.com/userguide/) docs!
+
+#### Install
+
+RECOMMENDED: Ubuntu Trusty
+1. Install [docker](https://docs.docker.com/installation/ubuntulinux/) Be mindful of the helpful installation script. 
+
+ `$ curl -sSL https://get.docker.com/ubuntu/ | sudo sh`
+
+2. Install [docker-compose](https://docs.docker.com/compose/) 
+
+OSX
+1. Install [boot2docker](https://docs.docker.com/installation/mac/) 
+2. Install [docker-compose](http://docs.docker.com/compose/install/) 
+
+#### Set Up 
+.env file contains environment variables as detailed below
+```cp .env.template .env``` 
+edit the resulting .env file as needed. At minimum, you need to set the postgres variables.
+
+
+#### Code
+Deploy Docker development as per instructions below. No need to set a local virtualenv because requirements.txt is installed into the Docker container. 
+
 ```bash
 django-admin startproject \
   --template=https://github.com/SiliconValleyInsight/django-project-template/archive/master.zip \
@@ -78,10 +105,11 @@ You can also use a `.env` config file for Docker and Heroku deployment
 
 ### Docker
 
-1. Build app image
+1. Build app images (listed in docker-compose.yml)
 
   ```bash
-  docker-compose build app
+  docker-compose build web 
+  docker-compose build db
   ```
 
 2. Create and run containers
