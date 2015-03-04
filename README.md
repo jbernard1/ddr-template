@@ -29,7 +29,7 @@ OSX
 
 ```cp .env.template .env```
 
-Edit the resulting .env file as needed. At minimum, you need to set the postgres variables.
+Edit the resulting .env file as needed. At minimum, you need to set the secret key, and postgres variables.
 
 
 #### Code
@@ -108,11 +108,10 @@ You can also use a `.env` config file for Docker and Heroku deployment
 
 ### Docker
 
-1. Build app images (listed in docker-compose.yml)
+1. Build app images (listed in docker-compose.yml. If there's already an image (like for db), then we don't need to build that app image.)
 
   ```bash
   docker-compose build web 
-  docker-compose build db
   ```
 
 2. Create and run containers
