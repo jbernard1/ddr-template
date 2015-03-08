@@ -25,6 +25,7 @@ INSTALLED_APPS = (
     'storages',
     'raven.contrib.django.raven_compat',
 
+    'pages',
     'api',
 )
 

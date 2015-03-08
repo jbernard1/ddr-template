@@ -4,9 +4,11 @@ from django.conf.urls.static import static
 from django.contrib import admin
 
 from api.v1 import api
+from pages import views
 
 urlpatterns = patterns(
     '',
+    url(r'^$', views.index, name='index'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/', include(api.urls)),
 )
