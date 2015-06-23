@@ -1,4 +1,6 @@
-# SVI Django Starter Template
+![DDR](https://s3.amazonaws.com/media-p.slid.es/uploads/176500/images/1488501/ddr.png)
+
+# Docker-Django-React Template
 
 ## Starting the Django Project
 ```bash
@@ -14,7 +16,7 @@ django-admin startproject \
 - [django-compressor](http://django-compressor.readthedocs.org)
 - [django-libsass](https://github.com/torchbox/django-libsass)
 - [django-storages](http://django-storages.readthedocs.org)
-- [django-tastypie](http://django-tastypie.readthedocs.org)
+- [django-rest-framework](http://django-rest-framework.org)
 
 ## Preloaded Apps
 
