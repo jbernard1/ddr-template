@@ -1,6 +1,4 @@
-![DDR](https://s3.amazonaws.com/media-p.slid.es/uploads/176500/images/1488501/ddr.png)
-
-# Docker-Django-React Template
+![Docker-Django-React Template](https://s3.amazonaws.com/media-p.slid.es/uploads/176500/images/1488501/ddr.png)
 
 ## Starting the Django Project
 ```bash
