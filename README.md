@@ -1,5 +1,10 @@
 ![Docker-Django-React Template](https://s3.amazonaws.com/media-p.slid.es/uploads/176500/images/1488501/ddr.png)
 
+## Requirements
+
+1. Docker Engine and Compose
+2. NPM
+
 ## Starting the Django Project
 ```bash
 django-admin startproject \
