@@ -1,11 +1,9 @@
 boto
-dj-database-url
 django
 django-compressor
 django-libsass
 django-storages
-django-tastypie
-gevent
+djangorestframework
 gunicorn
 psycopg2
 raven

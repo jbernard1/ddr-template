@@ -1,5 +1,9 @@
-from functools import partial
 from storages.backends.s3boto import S3BotoStorage
 
-StaticStorage = partial(S3BotoStorage, location='static')
-MediaStorage = partial(S3BotoStorage, location='media')
+
+class StaticStorage(S3BotoStorage):
+    location = 'static'
+
+
+class MediaStorage(S3BotoStorage):
+    location = 'media'

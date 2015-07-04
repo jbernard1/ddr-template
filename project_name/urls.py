@@ -3,12 +3,14 @@ from django.conf.urls import include, patterns, url
 from django.conf.urls.static import static
 from django.contrib import admin
 
-from api.v1 import api
 
 urlpatterns = patterns(
     '',
+    url(r'', include('frontend.urls')),
+    url(r'^api/', include('api.urls')),
+    url(r'^api-auth/', include('rest_framework.urls',
+                               namespace='rest_framework')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^api/', include(api.urls)),
 )
 
 if settings.DEBUG:

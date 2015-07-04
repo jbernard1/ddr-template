@@ -1,16 +1,14 @@
 import os
 
-import dj_database_url
 from django.utils._os import safe_join
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 SECRET_KEY = os.environ['SECRET_KEY']
-
-DEBUG = bool(int(os.environ.get('DEBUG', False)))
+DEBUG = os.environ['ENV'] == 'DEV'
 TEMPLATE_DEBUG = DEBUG
 
-ALLOWED_HOSTS = ['localhost', '.herokuapp.com']
+ALLOWED_HOSTS = ['localhost']
 
 INSTALLED_APPS = (
     'django.contrib.admin',
@@ -20,11 +18,12 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'tastypie',
+    'rest_framework',
     'compressor',
     'storages',
     'raven.contrib.django.raven_compat',
 
+    'frontend',
     'api',
 )
 
@@ -42,10 +41,8 @@ ROOT_URLCONF = '{{ project_name }}.urls'
 
 WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
-DATABASES = {}
-DATABASES.setdefault('default', dj_database_url.config())
-if not DATABASES['default']:
-    DATABASES['default'] = {
+DATABASES = {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'HOST': os.environ.get('POSTGRES_HOST', 'localhost'),
         'NAME': os.environ.get(
@@ -54,7 +51,8 @@ if not DATABASES['default']:
         ),
         'USER': os.environ['POSTGRES_USER'],
         'PASSWORD': os.environ['POSTGRES_PASSWORD'],
-    }
+    },
+}
 
 LANGUAGE_CODE = 'en-us'
 
@@ -81,6 +79,7 @@ else:
     AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
     AWS_STORAGE_BUCKET_NAME = '{{ project_name }}'
     AWS_QUERYSTRING_AUTH = False
+    AWS_IS_GZIPPED = True
     DEFAULT_FILE_STORAGE = '{{ project_name }}.s3.MediaStorage'
     STATICFILES_STORAGE = '{{ project_name }}.s3.StaticStorage'
     COMPRESS_STORAGE = '{{ project_name }}.s3.StaticStorage'
@@ -93,8 +92,6 @@ COMPRESS_OUTPUT_DIR = 'cache'
 COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_libsass.SassCompiler'),
 )
-
-TASTYPIE_DEFAULT_FORMATS = ['json']
 
 if 'SENTRY_DSN' in os.environ:
     RAVEN_CONFIG = {

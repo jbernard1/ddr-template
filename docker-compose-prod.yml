@@ -1,3 +1,23 @@
+source:
+  image: {{ project_name }}
+  volumes:
+    - /usr/src/app/venv
+    - /usr/src/app/node_modules
+    - /usr/src/app/static
+  environment:
+    - ENV=PROD
+  env_file: prod.env
+  command: scripts/install
+
+web:
+  image: {{ project_name }}
+  volumes_from:
+    - source
+  environment:
+    - ENV=PROD
+  env_file: prod.env
+  command: gunicorn -b 0.0.0.0:8000 {{ project_name }}.wsgi
+
 nginx:
   image: nginx:latest
   ports:
@@ -7,19 +27,3 @@ nginx:
     - web:web
   volumes:
     - nginx.conf:/etc/nginx/nginx.conf:ro
-
-db:
-  image: postgres:latest
-  environment:
-    POSTGRES_USER: {{ project_name }}
-  env_file: .env
-
-web:
-  build: .
-  links:
-    - db:db
-  environment:
-    POSTGRES_HOST: db
-    POSTGRES_USER: {{ project_name }}
-  env_file: .env
-  command: gunicorn -k gevent -b 0.0.0.0:8000 --access-logfile - --error-logfile - {{ project_name }}.wsgi

@@ -3,7 +3,7 @@ db:
   environment:
     POSTGRES_USER: {{ project_name }}
     POSTGRES_PASSWORD:
-  env_file: .env
+  env_file: dev.env
 
 web:
   build: .
@@ -12,11 +12,11 @@ web:
   links:
     - db:db
   environment:
-    PYTHONUNBUFFERED: 1
-    DEBUG: 1
-    POSTGRES_HOST: db
-    POSTGRES_USER: {{ project_name }}
-  env_file: .env
+    - PYTHONUNBUFFERED=1
+    - ENV=DEV
+    - POSTGRES_HOST=db
+    - POSTGRES_USER={{ project_name }}
+  env_file: dev.env
   ports:
     - 8000:8000
   command: python manage.py runserver 0.0.0.0:8000
