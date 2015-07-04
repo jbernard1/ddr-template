@@ -13,7 +13,9 @@ django-admin startproject \
   PROJECT_NAME
 ```
 
-## Configure
+## Development setup
+
+### Configure
 
 ```
 # dev.env
@@ -21,14 +23,25 @@ SECRET_KEY=
 POSTGRES_PASSWORD=
 ```
 
-```
-# prod.env
-SECRET_KEY=
-POSTGRES_PASSWORD=
-```
-
-## Install dependencies
+### Install web dependencies
 
 ```bash
 docker-compose run --rm web bin/install.sh
 ```
+
+### Create services
+
+```bash
+docker-compose up -d
+```
+
+### Setup django
+
+```bash
+docker-compose run --rm web python manage.py migrate
+docker-compose run --rm web python manage.py createsuperuser
+```
+
+## Production setup
+
+WIP
