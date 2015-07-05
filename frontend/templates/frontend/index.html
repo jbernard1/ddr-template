@@ -5,9 +5,9 @@
   <head>
     <title></title>
     {% block css %}
-    {% compress css %}
     <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Raleway:400,700">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+    {% compress css %}
     <link rel="stylesheet" type="text/x-scss" href="{% static "scss/main.scss" %}">
     {% endcompress %}
     {% endblock %}
