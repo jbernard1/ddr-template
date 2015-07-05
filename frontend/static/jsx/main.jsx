@@ -8,9 +8,9 @@ var Users = React.createClass({
     }
   },
   componentWillMount() {
-    axios.get({
-      url: '/api/users/',
+    axios.get('/api/users/', {
       xsrfCookieName: 'csrftoken',
+      xsrfHeaderName: 'X-CSRFToken',
     })
     .then((response) => {
       this.setState({
@@ -21,7 +21,7 @@ var Users = React.createClass({
   renderUser(user) {
     return (
       <div className="user">
-        <strong>{user.username}</strong>
+        <h2>{user.username}</h2>
         {user.email}
       </div>
     )
@@ -30,7 +30,7 @@ var Users = React.createClass({
     return (
       <div className="users">
         <h1>Users</h1>
-        {this.state.map(this.renderUser)}
+        {this.state.users.map(this.renderUser)}
       </div>
     )
   },
