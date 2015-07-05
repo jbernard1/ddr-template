@@ -20,7 +20,7 @@ var Users = React.createClass({
   },
   renderUser(user) {
     return (
-      <div className="user">
+      <div key={user.id} className="user">
         <h2>{user.username}</h2>
         {user.email}
       </div>
