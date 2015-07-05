@@ -9,7 +9,7 @@
 ```bash
 django-admin startproject \
   --template=https://github.com/SiliconValleyInsight/ddr-template/archive/master.zip \
-  --extension=sh,py,yml,json,env \
+  --extension=sh,py,yml,json \
   PROJECT_NAME
 ```
 
