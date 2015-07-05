@@ -10,6 +10,7 @@
 django-admin startproject \
   --template=https://github.com/SiliconValleyInsight/ddr-template/archive/master.zip \
   --extension=sh,py,yml,json \
+  --name=package.json \
   PROJECT_NAME
 ```
 
