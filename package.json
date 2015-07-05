@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "react": "0.13.x",
+    "axios": "0.5.x",
+    "react": "0.13.x"
   },
   "scripts": {
     "build": "browserify --extension .jsx frontend/static/jsx/main.jsx | uglifyjs -cm > static/js/main.js",
