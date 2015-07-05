@@ -12,6 +12,9 @@ django-admin startproject \
   --extension=sh,py,yml,json \
   --name=package.json \
   PROJECT_NAME
+# File permissions aren't being respected
+# for some reason. I'll fix this later :P
+chmod +x docker-entrypoint bin/*
 ```
 
 ## Development setup
